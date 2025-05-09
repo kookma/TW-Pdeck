@@ -3,10 +3,12 @@ tags: $:/tags/Pdeck/Procedure
 title: $:/plugins/kookma/pdeck/procedures/new-item-template
 type: text/vnd.tiddlywiki
 
-\function new-item-title()[{!!title}addprefix[New ]]
+\function new-question-title() [tag[Question]else[Q000]] :map[split[:]first[]removeprefix[Q]] :and[maxall[]add[1]pad[3]addprefix[Q]addsuffix[: ]]
+\function new-item-title() [{!!title}match[Question]] :then[function[new-question-title]] :else[{!!title}addprefix[New ]]
+
 \procedure create-new-item-action()
 <$let thisTemplate={{{ [[$:/tags/Template]tagging[]contains:tpl-list{!!title}first[]]:else[[$:/plugins/kookma/pdeck/templates/default]]}}}>
-		  <$action-createtiddler $basetitle=<<new-item-title>>$template=<<thisTemplate>>>
+		  <$action-createtiddler $basetitle=<<new-item-title>> $template=<<thisTemplate>>>
 			<$action-listops $tiddler=<<createTiddler-title>> $tags="[<currentTiddler>] -[[$:/tags/Template]]"/>
 			<$action-deletefield $tiddler=<<createTiddler-title>> tpl-caption tpl-list tpl-icon />	
 			<$action-sendmessage $param=<<createTiddler-title>>$message=tm-edit-tiddler/>		

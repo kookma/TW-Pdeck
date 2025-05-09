@@ -5,6 +5,6 @@ tags: $:/tags/Template
 title: $:/plugins/kookma/pdeck/templates/question
 topic: 
 tpl-caption: Question
-tpl-icon: $:/images/font-awesome/regular/question-circle
+tpl-icon: $:/plugins/kookma/pdeck/images/question-circle
 tpl-list: Question
 type: text/vnd.tiddlywiki

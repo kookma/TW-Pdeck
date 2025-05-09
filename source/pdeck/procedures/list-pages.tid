@@ -4,7 +4,7 @@ title: $:/plugins/kookma/pdeck/procedures/list-pages
 type: text/vnd.tiddlywiki
 
 \procedure list-pages(filter, entries-per-page:5, template:"$:/core/ui/ListItemTemplate", stateTid:"pagination")
-<$let stateTid=      {{{ "xx$/state/" [<stateTid>] [<qualify>] +[join[]]        }}}
+<$let stateTid=      {{{ "$/state/" [<stateTid>] [<qualify>] +[join[]]        }}}
       total-entries= {{{ [subfilter<filter>count[]]                             }}}
       page-number=   {{{ [<stateTid>get[text]] :else[[0]]                       }}} 
       offset =       {{{ [<page-number>multiply<entries-per-page>]              }}} 
