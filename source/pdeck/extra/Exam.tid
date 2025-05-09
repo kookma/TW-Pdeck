@@ -1,0 +1,6 @@
+color: #a8dfe6
+tags: $:/tags/Pdeck
+title: Exam
+type: text/vnd.tiddlywiki
+
+<$transclude $tiddler="$:/core/ui/ListItemTemplate"/>

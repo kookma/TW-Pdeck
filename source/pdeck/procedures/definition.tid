@@ -1,0 +1,6 @@
+tags: $:/tags/Pdeck/Procedure
+title: $:/plugins/kookma/pdeck/procedures/definition
+type: text/vnd.tiddlywiki
+
+\procedure configTiddler() $:/config/Pdeck
+\function tidSearchinSidebarTab() [[$:/temp/pdeck/sidebar-search]] [<currentTiddler>] :and[join[/]]

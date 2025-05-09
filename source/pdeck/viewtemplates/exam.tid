@@ -1,0 +1,14 @@
+code-body: yes
+tags: 
+title: $:/plugins/kookma/pdeck/viewtemplates/exam
+type: text/vnd.tiddlywiki
+
+\function question.title() "Q" [<qn>] ". " [{!!title}split[:]last[]] :and[join[]]
+
+<$list filter="[tag[Question]contains:exam<currentTiddler>]" counter="qn" join="<hr/>">
+	<b><$link><$text text=<<question.title>> /></$link></b>
+		<br/>
+	<$transclude $mode=block/>
+</$list>
+
+

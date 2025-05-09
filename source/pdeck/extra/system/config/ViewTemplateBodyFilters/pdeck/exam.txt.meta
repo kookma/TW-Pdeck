@@ -1,0 +1,4 @@
+list-before: $:/config/ViewTemplateBodyFilters/default
+tags: $:/tags/ViewTemplateBodyFilter
+title: $:/config/ViewTemplateBodyFilters/pdeck/exam
+type: text/plain

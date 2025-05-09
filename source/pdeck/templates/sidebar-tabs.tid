@@ -1,0 +1,24 @@
+code-body: yes
+tags: 
+title: $:/plugins/kookma/pdeck/templates/sidebar-tabs
+type: text/vnd.tiddlywiki
+
+\import [all[tiddlers+shadows]tag[$:/tags/Pdeck/Procedure]]
+
+\procedure create-new-item-button()
+<$button class="tc-btn-invisible tc-btn-mini" actions=<<create-new-item-action>> > 
+		New <$text text=<<currentTiddler>>/>
+</$button>		
+\end
+
+<$tiddler tiddler=<<currentTab>>>
+		<div class="float-end" style="margin-right:20px;">
+			<<create-new-item-button>>
+		</div>
+		<%if [<configTiddler>getindex[enable-searchbox-sidebar]match[yes]] %><!--optionally enable searchbox on sidebar tab-->
+			<$transclude $variable="search-box" placeholder="enter search term" tempTiddler=<<tidSearchinSidebarTab>> /><br>
+		<%endif%>
+		<$let searchTerm={{{ [<tidSearchinSidebarTab>get[text]] :else[[]] }}} searchFilter="[tag<currentTiddler>!is[draft]search:title,tags<searchTerm>]">
+			<$transclude $variable="list-pages" filter=<<searchFilter>> stateTid=<<currentTiddler>> template=<<currentTiddler>> entries-per-page={{{ [<configTiddler>getindex[entries-per-page]else[25]] }}}/>
+		</$let>
+</$tiddler>

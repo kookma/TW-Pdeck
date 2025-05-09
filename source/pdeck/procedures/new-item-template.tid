@@ -1,0 +1,20 @@
+code-body: yes
+tags: $:/tags/Pdeck/Procedure
+title: $:/plugins/kookma/pdeck/procedures/new-item-template
+type: text/vnd.tiddlywiki
+
+\function new-item-title()[{!!title}addprefix[New ]]
+\procedure create-new-item-action()
+<$let thisTemplate={{{ [[$:/tags/Template]tagging[]contains:tpl-list{!!title}first[]]:else[[$:/plugins/kookma/pdeck/templates/default]]}}}>
+		  <$action-createtiddler $basetitle=<<new-item-title>>$template=<<thisTemplate>>>
+			<$action-listops $tiddler=<<createTiddler-title>> $tags="[<currentTiddler>] -[[$:/tags/Template]]"/>
+			<$action-deletefield $tiddler=<<createTiddler-title>> tpl-caption tpl-list tpl-icon />	
+			<$action-sendmessage $param=<<createTiddler-title>>$message=tm-edit-tiddler/>		
+		</$action-createtiddler>
+</$let>	
+\end
+
+<$navigator story="$:/StoryList"history="$:/HistoryList"openLinkFromInsideRiver={{$:/config/Navigation/openLinkFromInsideRiver}}
+ openLinkFromOutsideRiver={{$:/config/Navigation/openLinkFromOutsideRiver}} relinkOnRename={{$:/config/RelinkOnRename}}>
+	<<create-new-item-action>>
+</$navigator>

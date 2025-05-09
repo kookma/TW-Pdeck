@@ -1,0 +1,16 @@
+{
+    "title": "$:/plugins/kookma/pdeck",
+    "version": "0.2.0",
+    "stability": "STABILITY_1_EXPERIMENTAL",
+    "name": "Problem Deck",
+    "description": "Create and use collection of problem-solving questions",
+    "author": "Mohammad Rahmani",
+    "source": "",
+    "list": "readme license history",
+    "plugin-priority": "",
+    "parent-plugin": "",
+    "dependents": "$:/plugins/kookma/shiraz",
+    "plugin-type": "plugin",
+    "core-version": ">=5.3.6",
+    "packaged-by": "Gatha on 9th May 2025, 13:19:13"
+}

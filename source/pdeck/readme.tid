@@ -1,0 +1,11 @@
+title: $:/plugins/kookma/pdeck/readme
+type: text/vnd.tiddlywiki
+
+; Problem Deck (pdeck)
+: Problem Deck (pdeck) is a TiddlyWiki plugin designed to help you create, organize, and use a curated "deck" of problem-solving questions, tailored for efficient study and review. Whether you're preparing for university exams or honing your problem-solving skills, pdeck provides a flexible, easy-to-use system to manage questions and answers in a modular, accessible way.
+
+;Code and demo
+For learning plugin features, syntax, tutorial and examples see the plugin demo and code pages
+
+* Demo: https://kookma.github.io/TW-Pdeck/
+* Code: https://github.com/kookma/TW-Pdeck

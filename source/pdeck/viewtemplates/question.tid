@@ -1,0 +1,24 @@
+list-before: $:/core/ui/ViewTemplate/body
+tags: $:/tags/ViewTemplate
+title: $:/plugins/kookma/pdeck/viewtemplates/question
+type: text/vnd.tiddlywiki
+
+\function question.fields() desc source topic
+\procedure showField()
+<$list filter="[{!!title}has<field>]"variable=null>
+<tr><th><$text text=<<field>>/></th><td><$transclude $field=<<field>>/></td></tr>
+</$list>
+\end
+
+\procedure showExamField()
+<$list filter="[{!!title}has[exam]]"variable=null>
+<tr><th>Exam</th><td><$list filter="[enlist{!!exam}]" join=" | "><$link/></$list></td></tr>
+</$list>
+\end
+
+<$list filter=[{!!title}tag[Question]]>
+	<table class="table-borderless kk-pdeck-question">
+		<<showExamField>>
+		<$list filter=[question.fields[]] variable=field><<showField>></$list>
+	</table>
+</$list>

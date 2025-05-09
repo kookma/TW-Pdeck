@@ -1,0 +1,9 @@
+/*
+Styles for source tiddlers used in Source viewtemplate
+*/
+.table-borderless.kk-exam-question th{
+text-align:right;
+}
+.table-borderless.kk-exam-question th:first-letter {
+    text-transform: uppercase;
+}

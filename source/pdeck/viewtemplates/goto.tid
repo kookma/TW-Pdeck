@@ -1,0 +1,23 @@
+tags: $:/tags/EditTemplate $:/tags/ViewTemplate
+title: $:/plugins/kookma/pdeck/viewtemplates/goto
+type: text/vnd.tiddlywiki
+
+\function target.tiddler() [all[current]has[draft.of]get[draft.of]removeprefix[Q]addprefix[A]] ~[all[current]removeprefix[Q]addprefix[A]]
+\procedure create-answer-tiddler()
+<$button class="tc-btn-invisible tc-tiddlylink">  
+  <$action-sendmessage $message="tm-new-tiddler"  
+    title=<<target.tiddler>>  
+    tags="Answer"/>  
+  	<<target.tiddler>>  
+</$button>  
+\end
+
+<% if [all[current]tag[Question]] %>
+	<%if [target.tiddler[]is[missing]] %>
+		Create answer: <<create-answer-tiddler>>
+	<%else%>
+		Go to answer: <$link to=<<target.tiddler>>/>
+	<%endif%>	
+<% elseif [all[current]tag[Answer]] %>
+  Go to question: {{{ [all[current]has[draft.of]get[draft.of]removeprefix[A]addprefix[Q]] ~[all[current]removeprefix[A]addprefix[Q]] }}}
+<% endif %>

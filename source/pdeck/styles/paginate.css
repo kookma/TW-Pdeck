@@ -1,0 +1,10 @@
+/*
+Styles for source tiddlers used in Source viewtemplate
+*/
+.kk-pdeck-paginate {
+	display: flex;
+	justify-content: space-between;
+	max-width:45ch;
+	/* specify explicit size */
+	font-size: 0.875em; /* typical browser default for <small> */
+}

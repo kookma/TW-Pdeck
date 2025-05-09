@@ -1,0 +1,11 @@
+list-before: $:/core/ui/ViewTemplate/body
+tags: $:/tags/ViewTemplate
+title: $:/plugins/kookma/pdeck/viewtemplates/topic
+type: text/vnd.tiddlywiki
+
+<$list filter=[{!!title}tag[Topic]]>
+<$list filter="[tag[Question]contains:topic<currentTiddler>]">
+<$link/><br/>
+<div style="padding-left:8px"><$list filter="[enlist{!!exam}]" join=" | "><$text text=<<currentTiddler>>/></$list></div>
+<$list>
+</$list>

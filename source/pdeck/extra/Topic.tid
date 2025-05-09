@@ -1,0 +1,6 @@
+hide-body: yes
+tags: $:/tags/Pdeck
+title: Topic
+type: text/vnd.tiddlywiki
+
+<$transclude $tiddler="$:/core/ui/ListItemTemplate"/>

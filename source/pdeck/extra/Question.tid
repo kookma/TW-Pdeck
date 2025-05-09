@@ -1,0 +1,12 @@
+color: #a13094
+hide-body: yes
+tags: $:/tags/Pdeck
+title: Question
+type: text/vnd.tiddlywiki
+
+<div class="tc-menu-list-item">
+<$link />
+<$list filter="[<currentTiddler>tags[]] -[[Question]]">
+	<$transclude $variable=tag-pill tag=<<currentTiddler>> />
+</$list>
+</div>

@@ -1,0 +1,11 @@
+caption: Problem Deck
+tags: $:/tags/SideBar
+title: $:/plugins/kookma/pdeck/ui/sidebar
+type: text/vnd.tiddlywiki
+
+<div style="padding:0 10px;"class=tc-more-sidebar>
+<$transclude $variable=tabs tabsList="[all[tiddlers+shadows]tag[$:/tags/Pdeck]!has[draft.of]]" 
+ class="tc-vertical tc-sidebar-tabs-more"
+ template="$:/plugins/kookma/pdeck/templates/sidebar-tabs" default="Question"
+/>
+</div>

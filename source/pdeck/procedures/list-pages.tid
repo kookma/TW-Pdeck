@@ -1,0 +1,33 @@
+code-body: yes
+tags: $:/tags/Pdeck/Procedure
+title: $:/plugins/kookma/pdeck/procedures/list-pages
+type: text/vnd.tiddlywiki
+
+\procedure list-pages(filter, entries-per-page:5, template:"$:/core/ui/ListItemTemplate", stateTid:"pagination")
+<$let stateTid=      {{{ "xx$/state/" [<stateTid>] [<qualify>] +[join[]]        }}}
+      total-entries= {{{ [subfilter<filter>count[]]                             }}}
+      page-number=   {{{ [<stateTid>get[text]] :else[[0]]                       }}} 
+      offset =       {{{ [<page-number>multiply<entries-per-page>]              }}} 
+      prevButtonState= {{{ [<page-number>compare:number:lt[1]then[yes]else[no]] }}}
+      nextButtonState= {{{ [<offset>add<entries-per-page>compare:number:gteq<total-entries>then[yes]else[no]] }}} >
+
+
+<section class="kk-pdeck-paginate">
+<div><!-- create nav buttons --->
+<$button disabled=<<prevButtonState>> class="tc-btn-invisible tc-tiddlylink">Prev
+	<$action-listops $tiddler=<<stateTid>> $field=text $subfilter="+[subtract[1]] :else[[1]]"/>
+</$button> | 
+<$button disabled=<<nextButtonState>> class="tc-btn-invisible tc-tiddlylink">Next
+	<$action-listops $tiddler=<<stateTid>> $field=text $subfilter="+[add[1]] :else[[1]]"/>
+</$button> 
+</div>
+<div><!-- report displaying items --->
+Displaying <$text text={{{[<offset>add[1]]}}}/> through <$text text={{{[<offset>add<entries-per-page>min<total-entries>]}}}/> of <<total-entries>> Results
+</div>
+</section>
+<br/>
+
+<$list filter="[subfilter<filter>rest<offset>] +[limit<entries-per-page>]" template=<<template>> />
+
+</$let>
+\end

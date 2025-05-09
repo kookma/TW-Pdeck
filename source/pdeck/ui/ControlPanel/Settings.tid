@@ -1,0 +1,30 @@
+caption: Pdeck
+tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
+title: $:/plugins/kookma/pdeck/ui/ControlPanel/Settings
+type: text/vnd.tiddlywiki
+
+\import $:/plugins/kookma/pdeck/procedures/definition
+
+These settings let you customise the behaviour of Problem Deck (Pdeck) plugin.
+
+---
+
+;Show Pdeck setting in more sidebar
+:<$checkbox tiddler="$:/plugins/kookma/pdeck/ui/ControlPanel/Settings" tag="$:/tags/MoreSideBar"> Show setting in more sidebar</$checkbox>
+
+;Options
+:<$checkbox tiddler="$:/plugins/kookma/pdeck/ui/sidebar" tag="$:/tags/SideBar"> Show "Problem Deck" as sidebar tab</$checkbox>
+
+;Sidebar tabs search box
+:<$checkbox tiddler=<<configTiddler>> index="enable-searchbox-sidebar" checked=yes> Enable searchbox on pdeck sidebar tabs</$checkbox>
+
+;Sidebar tabs pagination
+:Select number of entries per page <$select tiddler=<<configTiddler>> index="entries-per-page" default="25" actions='<$action-deletetiddler $filter="[prefix[$:/temp/pdeck/sidebar-search/]]"/>'>
+<$list filter="10 25 50 75 100" >
+<option value=<<currentTiddler>> >
+<$view field='name'>
+  <$view field='title'/>
+</$view>
+</option>
+</$list>
+</$select>

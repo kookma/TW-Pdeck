@@ -1,0 +1,1 @@
+[tag[Exam]then[$:/plugins/kookma/pdeck/viewtemplates/exam]]
