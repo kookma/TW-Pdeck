@@ -3,7 +3,7 @@ tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/question
 type: text/vnd.tiddlywiki
 
-\function question.fields() desc source topic
+\function question.fields() source topic
 \procedure showField()
 <$list filter="[{!!title}has<field>]"variable=null>
 <tr><th><$text text=<<field>>/></th><td><$transclude $field=<<field>>/></td></tr>
@@ -20,5 +20,8 @@ type: text/vnd.tiddlywiki
 	<table class="table-borderless kk-pdeck-question">
 		<<showExamField>>
 		<$list filter=[question.fields[]] variable=field><<showField>></$list>
-	</table>
+  </table>
+  <%if [{!!title}has[keywords]] %>
+    <$text text={{{ [enlist{!!keywords}join[, ]addsuffix[.]] }}} />
+  <%endif%>		
 </$list>

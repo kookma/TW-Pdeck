@@ -1,0 +1,12 @@
+auto-trigger-input: 1
+caption: Pdeck new question
+display-filter: [<currentTiddler>pad[3]addprefix[Q]addsuffix[: ]]
+filter: [tag[Question]] :map[split[:]first[]removeprefix[Q]] :and[maxall[]add[1]]
+tags: $:/tags/EC/AutoComplete/Trigger
+template: $option$$caret$
+title: $:/EvidentlyCube/Trigger/Pdeck/Question
+transform-filter: [<currentTiddler>pad[3]addprefix[Q]addsuffix[: ]]
+trigger: ?q
+type: text/vnd.tiddlywiki
+
+It triggers after typing `?q` and suggest the next question number in form of Q001

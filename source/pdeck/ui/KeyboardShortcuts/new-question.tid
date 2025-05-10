@@ -1,0 +1,8 @@
+key: ((new-question))
+tags: $:/tags/KeyboardShortcut
+title: $:/plugins/kookma/pdeck/ui/KeyboardShortcuts/new-question
+type: text/vnd.tiddlywiki
+
+<$tiddler tiddler="Question" >
+	{{||$:/plugins/kookma/pdeck/ui/Actions/new-item-template}}
+</$tiddler>

@@ -3,4 +3,9 @@ tags: $:/tags/Pdeck
 title: Topic
 type: text/vnd.tiddlywiki
 
-<$transclude $tiddler="$:/core/ui/ListItemTemplate"/>
+<div class="tc-menu-list-item">
+  <$link />
+  <span class="kk-pdeck-question-count" title="number of question in this topic">
+    (<$count filter="[tag[Question]contains:topic<currentTiddler>]"/>)
+  </span>
+</div>
