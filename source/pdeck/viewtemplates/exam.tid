@@ -1,14 +1,17 @@
 code-body: yes
+created: 20250515043043900
+modified: 20250516121343512
 tags: 
 title: $:/plugins/kookma/pdeck/viewtemplates/exam
 type: text/vnd.tiddlywiki
 
 \function question.title() "Q" [<qn>] ". " [{!!title}split[:]last[]] :and[join[]]
 
-<$list filter="[tag[Question]contains:exam<currentTiddler>]" counter="qn" join="<hr/>">
-	<b><$link><$text text=<<question.title>> /></$link></b>
-		<br/>
-	<$transclude $mode=block/>
+<$list filter="[tag[Question]contains:exam<currentTiddler>] :and[sortby{!!sortby}]" counter="qn" join="<hr/>">
+	<section class="kk-pdeck-question">
+		<h2 class="kk-pdeck-question-title"><$link><$text text=<<question.title>> /></$link></h2>
+		<$transclude $mode="block"/>
+	</section>
 </$list>
 
 

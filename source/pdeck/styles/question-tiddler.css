@@ -1,9 +1,9 @@
 /*
-Styles for source tiddlers used in Source viewtemplate
+Styles for question tiddlers used in question viewtemplate
 */
-.table-borderless.kk-pdeck-question th{
+.table-borderless.kk-pdeck-question-info th{
 text-align:right;
 }
-.table-borderless.kk-pdeck-question th:first-letter {
+.table-borderless.kk-pdeck-question-info th:first-letter {
     text-transform: uppercase;
 }

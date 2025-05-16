@@ -1,0 +1,12 @@
+/*
+Styles for exam tiddlers used in exam viewtemplate
+*/
+h2.kk-pdeck-question-title{
+	font-size: 1em;
+	font-weight: normal;
+}
+
+section.kk-pdeck-question{
+	/*reserved for print css */
+	margin-top: 2em;
+}

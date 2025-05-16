@@ -1,27 +1,33 @@
+created: 20250515044532759
 list-before: $:/core/ui/ViewTemplate/body
+modified: 20250516115203592
 tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/question
 type: text/vnd.tiddlywiki
 
-\function question.fields() source topic
+\function question.fields() exam source topic
 \procedure showField()
-<$list filter="[{!!title}has<field>]"variable=null>
-<tr><th><$text text=<<field>>/></th><td><$transclude $field=<<field>>/></td></tr>
-</$list>
+<%if [{!!title}has<field>] %>
+	<tr>
+		<th><$text text=<<field>>/></th>
+		<%if [<field>!match[source]] %>
+			<td><$list filter="[all[current]get<field>enlist-input[]]" join=" | "><$link/></$list></td>
+		<%else%><!-- display the source field, as it will be used with Refnotes plugin -->
+			<td><$transclude $field=<<field>>/></td>
+		<%endif%>
+	</tr>
+<%endif%>
 \end
 
-\procedure showExamField()
-<$list filter="[{!!title}has[exam]]"variable=null>
-<tr><th>Exam</th><td><$list filter="[enlist{!!exam}]" join=" | "><$link/></$list></td></tr>
-</$list>
-\end
-
-<$list filter=[{!!title}tag[Question]]>
-	<table class="table-borderless kk-pdeck-question">
-		<<showExamField>>
+<$list filter="[<currentTiddler>tag[Question]]">
+	<table class="table-borderless kk-pdeck-question-info">
 		<$list filter=[question.fields[]] variable=field><<showField>></$list>
   </table>
+</$list>
+
+<!--
+Keywords can be displayed, but pdeck will be used with Paliz and it handles keywords
   <%if [{!!title}has[keywords]] %>
     <$text text={{{ [enlist{!!keywords}join[, ]addsuffix[.]] }}} />
   <%endif%>		
-</$list>
+-->	

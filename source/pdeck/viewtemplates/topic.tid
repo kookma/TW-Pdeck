@@ -1,17 +1,22 @@
+created: 20250516120053800
 list-before: $:/core/ui/ViewTemplate/body
+modified: 20250516120333778
 tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/topic
 type: text/vnd.tiddlywiki
 
 \function topic.filter() [tag[Question]contains:topic<currentTiddler>]
+
 <$list filter=[{!!title}tag[Topic]]>
-<div class="kk-pdeck-topic-stat">
-  <span>Statistics</span>
-  <span>Exams: <$count filter="[topic.filter[]get[exam]enlist-input[]unique[]]"/></span>
-  <span>Questions: <$count filter="[topic.filter[]]"/></span>
-</div>
-<$list filter="[tag[Question]contains:topic<currentTiddler>]">
-<$link/><br/>
-<div class="kk-pdeck-examlist"><$list filter="[enlist{!!exam}]" join=" | "><$text text=<<currentTiddler>>/></$list></div>
-<$list>
+	<aside class="kk-pdeck-topic-stat">
+		<span>Statistics</span>
+		<span>Exams: <$count filter="[topic.filter[]get[exam]enlist-input[]unique[]]"/></span>
+		<span>Questions: <$count filter="[topic.filter[]]"/></span>
+	</aside>
+	<$list filter="[tag[Question]contains:topic<currentTiddler>]">
+		<$link/><br/>
+		<div class="kk-pdeck-examlist">
+			<$list filter="[enlist{!!exam}]" join=" | "><$text text=<<currentTiddler>>/></$list>
+		</div>
+	<$list>
 </$list>
