@@ -1,8 +1,23 @@
+created: 20250706055748321
+modified: 20250706064610680
 tags: $:/tags/EditTemplate $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/goto
 type: text/vnd.tiddlywiki
 
-\function target.tiddler() [all[current]has[draft.of]get[draft.of]removeprefix[Q]addprefix[A]] ~[all[current]removeprefix[Q]addprefix[A]]
+\procedure multi-answer-pattern() /\d+$
+
+\function answer.tiddlers()
+[all[current]has[draft.of]get[draft.of]removeprefix[Q]addprefix[A]]
+:else[all[current]removeprefix[Q]addprefix[A]]
+:map:flat[all[tiddlers+shadows]prefix<currentTiddler>]
+\end
+
+\function question.tiddler()
+[all[current]has[draft.of]get[draft.of]removeprefix[A]addprefix[Q]]
+:else[all[current]removeprefix[A]addprefix[Q]]
+:and[search-replace:g:regexp<multi-answer-pattern>,[]trim[]]
+\end
+
 \procedure create-answer-tiddler()
 <$button class="tc-btn-invisible tc-tiddlylink">  
   <$action-sendmessage $message="tm-new-tiddler"  
@@ -16,8 +31,8 @@ type: text/vnd.tiddlywiki
 	<%if [target.tiddler[]is[missing]] %>
 		Create answer: <<create-answer-tiddler>>
 	<%else%>
-		Go to answer: <$link to=<<target.tiddler>>/>
+		Go to answer: <$list filter="[answer.tiddlers[]]" join=" | "/>
 	<%endif%>	
 <% elseif [all[current]tag[Answer]] %>
-  Go to question: {{{ [all[current]has[draft.of]get[draft.of]removeprefix[A]addprefix[Q]] ~[all[current]removeprefix[A]addprefix[Q]] }}}
+  Go to question: <$link to=<<question.tiddler>>/>
 <% endif %>

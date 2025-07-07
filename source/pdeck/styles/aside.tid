@@ -1,0 +1,24 @@
+created: 20250706181907632
+modified: 20250706185253640
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/pdeck/styles/aside
+type: text/vnd.tiddlywiki
+
+[data-tags*="Answer"] aside,
+[data-tags*="Question"] aside {
+	padding-right: 10px;
+	margin-right: 15px;
+	text-align:right;	
+	font-size: 0.8rem;	
+	color: <<colour muted-foreground>>;	
+	background-color: <<colour modal-background>>; 
+	border-right: 2px solid <<colour modal-border>>;
+}
+
+@media print{
+	[data-tags*="Answer"] aside,
+	[data-tags*="Question"] aside{
+		display: none;
+	}
+
+}

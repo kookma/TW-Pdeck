@@ -1,6 +1,6 @@
 created: 20250515044532759
 list-before: $:/core/ui/ViewTemplate/body
-modified: 20250516115203592
+modified: 20250703114102951
 tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/question
 type: text/vnd.tiddlywiki
@@ -11,7 +11,7 @@ type: text/vnd.tiddlywiki
 	<tr>
 		<th><$text text=<<field>>/></th>
 		<%if [<field>!match[source]] %>
-			<td><$list filter="[all[current]get<field>enlist-input[]]" join=" | "><$link/></$list></td>
+			<td><$list filter="[<currentTiddler>get<field>enlist-input[]]" join=" | "><$link/></$list></td>
 		<%else%><!-- display the source field, as it will be used with Refnotes plugin -->
 			<td><$transclude $field=<<field>>/></td>
 		<%endif%>

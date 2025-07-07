@@ -1,0 +1,11 @@
+created: 20250706185315175
+modified: 20250706185741734
+tags: $:/tags/Global
+title: $:/plugins/kookma/pdeck/procedures/aside
+type: text/vnd.tiddlywiki
+
+\procedure aside(src)
+<aside>
+	<$transclude $variable="src" $mode=block/>
+</aside>
+\end

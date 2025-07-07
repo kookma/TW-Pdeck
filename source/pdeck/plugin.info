@@ -1,6 +1,6 @@
 {
     "title": "$:/plugins/kookma/pdeck",
-    "version": "0.6.0",
+    "version": "0.9.0",
     "stability": "STABILITY_1_EXPERIMENTAL",
     "name": "Problem Deck",
     "description": "Create and use collection of problem-solving questions",
@@ -12,5 +12,5 @@
     "dependents": "$:/plugins/kookma/shiraz",
     "plugin-type": "plugin",
     "core-version": ">=5.3.6",
-    "packaged-by": "Gatha on 15th May 2025, 23:29:35"
+    "packaged-by": "Gatha on 6th July 2025, 22:41:55"
 }
