@@ -1,6 +1,6 @@
 created: 20250516120053800
 list-before: $:/core/ui/ViewTemplate/body
-modified: 20250516120333778
+modified: 20250715155733673
 tags: $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/topic
 type: text/vnd.tiddlywiki
@@ -13,7 +13,7 @@ type: text/vnd.tiddlywiki
 		<span>Exams: <$count filter="[topic.filter[]get[exam]enlist-input[]unique[]]"/></span>
 		<span>Questions: <$count filter="[topic.filter[]]"/></span>
 	</aside>
-	<$list filter="[tag[Question]contains:topic<currentTiddler>]">
+	<$list filter="[topic.filter[]]">
 		<$link/><br/>
 		<div class="kk-pdeck-examlist">
 			<$list filter="[enlist{!!exam}]" join=" | "><$text text=<<currentTiddler>>/></$list>
