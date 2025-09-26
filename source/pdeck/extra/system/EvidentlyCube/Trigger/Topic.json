@@ -1,0 +1,14 @@
+[
+    {
+        "text": "List Pdeck topic tiddlers",
+        "tags": "$:/tags/EC/AutoComplete/Trigger",
+        "title": "$:/EvidentlyCube/Trigger/Topic",
+        "type": "text/vnd.tiddlywiki",
+        "caption": "Pdeck list topic",
+        "trigger": "?pt",
+        "filter": "[all[tiddlers+shadows]tag[Topic]!is[draft]search:title<query>rsort<query>]\n:except[<editedTiddler>get[topic]enlist-input[]]",
+        "display-filter": "[<currentTiddler>]",
+        "template": "[[$option$]]$caret$",
+        "auto-trigger-input": "1"
+    }
+]

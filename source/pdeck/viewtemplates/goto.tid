@@ -1,15 +1,12 @@
-created: 20250706055748321
-modified: 20250706064610680
 tags: $:/tags/EditTemplate $:/tags/ViewTemplate
 title: $:/plugins/kookma/pdeck/viewtemplates/goto
 type: text/vnd.tiddlywiki
 
 \procedure multi-answer-pattern() /\d+$
 
-\function answer.tiddlers()
+\function answer.tiddler()
 [all[current]has[draft.of]get[draft.of]removeprefix[Q]addprefix[A]]
 :else[all[current]removeprefix[Q]addprefix[A]]
-:map:flat[all[tiddlers+shadows]prefix<currentTiddler>]
 \end
 
 \function question.tiddler()
@@ -21,18 +18,23 @@ type: text/vnd.tiddlywiki
 \procedure create-answer-tiddler()
 <$button class="tc-btn-invisible tc-tiddlylink">  
   <$action-sendmessage $message="tm-new-tiddler"  
-    title=<<target.tiddler>>  
+    title=<<answer.tiddler>>
     tags="Answer"/>  
-  	<<target.tiddler>>  
+  	<<answer.tiddler>>  
 </$button>  
 \end
 
 <% if [all[current]tag[Question]] %>
-	<%if [target.tiddler[]is[missing]] %>
+	<%if [answer.tiddler[]is[missing]] %>
 		Create answer: <<create-answer-tiddler>>
 	<%else%>
-		Go to answer: <$list filter="[answer.tiddlers[]]" join=" | "/>
+		Go to answer: <$list filter="[answer.tiddler[]] :map:flat[all[tiddlers+shadows]prefix<currentTiddler>else<currentTiddler>]" join=" | "/>
 	<%endif%>	
 <% elseif [all[current]tag[Answer]] %>
   Go to question: <$link to=<<question.tiddler>>/>
 <% endif %>
+
+<!-- NOTE
+This filter="[answer.tiddler[]] :map:flat[all[tiddlers+shadows]prefix<currentTiddler>else<currentTiddler>]"
+looks for multiple answers all prefixed with question title (A instead of Q) suffixed with /01, /02, ...
+-->

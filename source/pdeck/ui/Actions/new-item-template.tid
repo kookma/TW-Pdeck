@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 \procedure create-new-item-action()
 <$let thisTemplate={{{ [[$:/tags/Template]tagging[]contains:tpl-list{!!title}first[]]:else[[$:/plugins/kookma/pdeck/templates/default]]}}}>
   <$action-createtiddler $basetitle=<<new-item-title>> $template=<<thisTemplate>> >
-    <$action-listops $tiddler=<<createTiddler-title>> $tags="[<currentTiddler>] [[Easy]] -[[$:/tags/Template]]"/><!-- remove meta tags and add currentTiddler as tag -->
+    <$action-listops $tiddler=<<createTiddler-title>> $tags="[<currentTiddler>] -[[$:/tags/Template]]"/><!-- remove meta tags and add currentTiddler as tag -->
     <$action-deletefield $tiddler=<<createTiddler-title>> tpl-caption tpl-list tpl-icon/><!-- remove meta fields -->	
     <$action-sendmessage $message="tm-edit-tiddler" $param=<<createTiddler-title>>/><!-- open newly created tiddler in edit mode -->		
   </$action-createtiddler>
